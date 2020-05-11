@@ -1,0 +1,60 @@
+---
+title: "ISA HW1"
+output: html_notebook
+---
+
+```{r}
+# HW1 problem 1
+
+# Create a vector ‘x’ with values from 100 to 109
+x <- c(100:109)
+x
+
+# Create a vector ‘y’ with values 34, 28, 45, 67, 89, 93, 24, 49, 11, 7
+y <- c(34, 28, 45, 67, 89, 93, 24, 49, 11, 7)
+y
+
+# Add vector ‘x’ and ‘y
+x+y
+
+```
+
+```{r}
+# HW1 problem 2
+
+# Assign values
+a<-1.12
+b<-2.34
+c<-0.72
+d<-0.81
+f<-19.83
+
+# 1st expression
+x <- 1 + (a/b) + (c/f^2)
+x
+
+# 2nd expression
+s <- (b-a)/(d-c)
+s
+
+# 3rd expression
+r <- 1/((1/a)+(1/b)+(1/c)+(1/d))
+r
+
+# 4th expression
+y <- a*b*(1/c)*(f^2/2)
+y
+
+```
+
+```{r}
+# HW1 problem 3
+
+# Import .csv file
+hw1_data <- read.csv("HW01-Prob3Data.csv", header = TRUE)
+
+# Display first few rows of data
+head(hw1_data)
+
+```
+

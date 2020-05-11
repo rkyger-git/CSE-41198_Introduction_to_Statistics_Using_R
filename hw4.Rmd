@@ -1,0 +1,68 @@
+---
+title: "hw4"
+output: html_notebook
+---
+
+```{r}
+#1
+x <- c(25, 30, 35, 40, 45)
+y <- c(5, 260, 480, 745, 1100)
+
+model <- lm(y ~ x)
+
+#model
+
+summary(model)
+
+```
+
+```{r}
+#2
+y_hat <- function(x) {
+  (-0.0526*x) + 2.9342
+}
+
+y_hat(8)
+
+y_hat(7)
+
+2.68 > y_hat(7)
+
+```
+
+```{r}
+#3
+height <- c(27.75,24.5,25.5,26,25,27.75,26.5,27,26.75,26.75,27.5)
+head_circ <- c(17.5,17.1,17.1,17.3,16.9,17.6,17.3,17.5,17.3,17.5,17.5)
+
+model <- lm(head_circ ~ height)
+
+summary(model)
+
+pred_head <- function(x) {
+  (0.18273*x) + 12.49317
+}
+
+pred_head(25)
+
+residual <- 16.9 - pred_head(25)
+residual
+
+```
+
+```{r}
+#4
+car_weight <- c(3765,3984,3530,3175,2580,3730,2605,3772,3310,2991,2752)
+MPG <- c(19,18,21,22,27,18,26,17,20,25,26)
+
+model <- lm(MPG~car_weight)
+summary(model)
+
+pred_MPG <- function(x) {
+  (-0.0070363*x) + 44.8793298
+}
+
+pred_MPG(2780)
+pred_MPG(2780) > 22
+```
+

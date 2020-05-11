@@ -1,0 +1,168 @@
+---
+title: "hw5"
+output: html_notebook
+---
+
+
+```{r}
+#1
+mean <- 80
+sd <- 14
+n <- 49
+
+sdmd <- sd/sqrt(n)
+sdmd
+
+x = 83
+
+zvalue <- (x - mean)/sdmd
+
+(1 - pnorm(zvalue))*100
+
+x = 75.8
+
+zvalue <- (x - mean)/sdmd
+
+pnorm(zvalue)*100
+
+x = 85.1
+y = 78.3
+
+zvalue1 <- (x - mean)/sdmd
+
+zvalue2 <- (y - mean)/sdmd
+
+
+(pnorm(zvalue1) - pnorm(zvalue2))*100
+
+
+```
+
+```{r}
+#2
+mean <- 90
+sd <- 10
+
+x <- 95
+
+zvalue <- (x - mean)/sd
+
+(1 - pnorm(zvalue))*100
+
+n <- 12
+
+x <- 95
+
+sdsd <- sd/sqrt(n)
+#sdsd
+
+zvalue <- (x - mean)/sdmd
+
+(1 - pnorm(zvalue))*100
+
+
+n <- 24
+
+x <- 95
+
+sdsd <- sd/sqrt(n)
+#sdsd
+
+zvalue <- (x - mean)/sdmd
+
+(1 - pnorm(zvalue))*100
+
+n <- 20
+
+x <- 92.8
+
+sdmd <- sd/sqrt(n)
+#sdmd
+
+zvalue <- (x - mean)/sdmd
+
+(1 - pnorm(zvalue))*100
+
+
+```
+
+```{r}
+#3
+
+n <- 1000
+p <- 0.35
+
+sdsd <- sqrt(p*(1-p)/n)
+sdsd
+
+
+x <- 0.39
+
+zvalue <- (x-p)/sdsd
+
+#zvalue
+
+(1 - pnorm(zvalue))*100
+
+
+x <- 0.32
+
+zvalue <- (x-p)/sdsd
+
+#zvalue
+
+pnorm(zvalue)*100
+
+```
+
+```{r}
+#4
+n <- 100
+p <- 0.82
+
+sdsd <- sqrt(p*(1-p)/n)
+sdsd
+
+x <- 0.85 
+
+zvalue <- (x-p)/sdsd
+
+#zvalue
+
+(1 - pnorm(zvalue))*100
+
+x <- 0.75 
+
+zvalue <- (x-p)/sdsd
+
+#zvalue
+
+pnorm(zvalue)*100
+
+```
+
+```{r}
+#5
+n <- 500
+p <- 0.26
+
+sdsd <- sqrt(p*(1-p)/n)
+sdsd
+
+x <- 0.24
+
+zvalue <- (x-p)/sdsd
+
+#zvalue
+
+pnorm(zvalue)*100
+
+x <- 150/500
+
+zvalue <- (x-p)/sdsd
+
+#zvalue
+
+(1 - pnorm(zvalue))*100
+```
+

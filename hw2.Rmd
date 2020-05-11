@@ -1,0 +1,202 @@
+---
+title: "ISA HW!"
+output: html_notebook
+---
+
+
+```{r}
+library(readxl)
+
+utility <- read_excel("Utility.xlsx")
+#utility
+
+hist(utility$`Utility Charge`)
+
+sum <- sum(utility)
+#sum
+
+get_percent <- function(x) {
+  (x/sum)*100
+}
+
+perc_utility <- lapply(utility, get_percent)
+#perc_utility
+
+hist(perc_utility$`Utility Charge`)
+
+```
+
+
+
+
+```{r}
+library(readxl)
+data <- read_excel("Market Penetration.xlsx")
+#data
+
+mean(data$`Facebook Penetration`)
+median(data$`Facebook Penetration`)
+
+get_mode <- function(x) {
+   uniq <- unique(x)
+   uniq[which.max(tabulate(match(x, uniq)))]
+}
+
+get_mode(data$`Facebook Penetration`)
+
+
+var(data$`Facebook Penetration`)
+
+sd(data$`Facebook Penetration`)
+
+range <- max(data$`Facebook Penetration`) - min(data$`Facebook Penetration`)
+range
+
+coeff_var <- sd(data$`Facebook Penetration`)/mean(data$`Facebook Penetration`) * 100
+coeff_var
+
+#get z-scores
+scale(data$`Facebook Penetration`)
+
+#left skew test
+mean(data$`Facebook Penetration`) < median(data$`Facebook Penetration`)
+
+boxplot(data$`Facebook Penetration`)
+```
+
+```{r}
+library(readxl)
+data <- read_excel("Market Penetration.xlsx")
+#data
+
+IQR(data$`Facebook Penetration`)
+
+quantile(data$`Facebook Penetration`)
+
+boxplot(data$`Facebook Penetration`)
+```
+
+```{r}
+#6
+library(readxl)
+#energy <- read_excel('Energy.xlsx')
+
+mean(energy$`Kilowatt Hours`)
+var(energy$`Kilowatt Hours`)
+sd(energy$`Kilowatt Hours`)
+
+one_sd <- (mean(energy$`Kilowatt Hours`) - sd(energy$`Kilowatt Hours`)) < energy$`Kilowatt Hours` & energy$`Kilowatt Hours` < (mean(energy$`Kilowatt Hours`) + sd(energy$`Kilowatt Hours`))
+one_sd
+
+table1 <- table(one_sd)
+
+one_sd_per <- table[2]/length(energy$`Kilowatt Hours`) * 100
+one_sd_per
+
+
+two_sd <- (mean(energy$`Kilowatt Hours`) - 2*sd(energy$`Kilowatt Hours`)) < energy$`Kilowatt Hours` & energy$`Kilowatt Hours` < (mean(energy$`Kilowatt Hours`) + 2*sd(energy$`Kilowatt Hours`))
+two_sd
+
+table2 <- table(two_sd)
+
+two_sd_per <- table2[2]/length(energy$`Kilowatt Hours`) * 100
+two_sd_per
+
+
+three_sd <- (mean(energy$`Kilowatt Hours`) - 3*sd(energy$`Kilowatt Hours`)) < energy$`Kilowatt Hours` & energy$`Kilowatt Hours` < (mean(energy$`Kilowatt Hours`) + 3*sd(energy$`Kilowatt Hours`))
+three_sd
+
+table3 <- table(three_sd)
+
+three_sd_per <- table3/length(energy$`Kilowatt Hours`) * 100
+three_sd_per
+
+
+#hist(energy$`Kilowatt Hours`)
+
+
+```
+
+```{r}
+#6d
+library(readxl)
+#energy_noDC <- read_excel('Energy_noDC.xlsx')
+
+mean(energy_noDC$`Kilowatt Hours`)
+var(energy_noDC$`Kilowatt Hours`)
+sd(energy_noDC$`Kilowatt Hours`)
+
+
+one_sd <- (mean(energy_noDC$`Kilowatt Hours`) - sd(energy_noDC$`Kilowatt Hours`)) < energy_noDC$`Kilowatt Hours` & energy_noDC$`Kilowatt Hours` < (mean(energy_noDC$`Kilowatt Hours`) + sd(energy_noDC$`Kilowatt Hours`))
+one_sd
+
+table1 <- table(one_sd)
+
+one_sd_per <- table[2]/length(energy_noDC$`Kilowatt Hours`) * 100
+one_sd_per
+
+
+two_sd <- (mean(energy_noDC$`Kilowatt Hours`) - 2*sd(energy_noDC$`Kilowatt Hours`)) < energy_noDC$`Kilowatt Hours` & energy_noDC$`Kilowatt Hours` < (mean(energy_noDC$`Kilowatt Hours`) + 2*sd(energy_noDC$`Kilowatt Hours`))
+two_sd
+
+table2 <- table(two_sd)
+
+two_sd_per <- table2[2]/length(energy_noDC$`Kilowatt Hours`) * 100
+two_sd_per
+
+
+three_sd <- (mean(energy_noDC$`Kilowatt Hours`) - 3*sd(energy_noDC$`Kilowatt Hours`)) < energy_noDC$`Kilowatt Hours` & energy_noDC$`Kilowatt Hours` < (mean(energy_noDC$`Kilowatt Hours`) + 3*sd(energy_noDC$`Kilowatt Hours`))
+three_sd
+
+table3 <- table(three_sd)
+
+three_sd_per <- table3[2]/length(energy_noDC$`Kilowatt Hours`) * 100
+three_sd_per
+
+```
+
+
+
+
+```{r}
+#7
+library(readxl)
+cereals <- read_excel("Cereals.xlsx")
+
+cov(cereals$Calories, cereals$Sugar)
+
+cor(cereals$Calories, cereals$Sugar, method = "pearson")
+
+```
+
+
+```{r}
+#8
+library(readxl)
+football <- read_excel("College Football.xlsx")
+
+cov(football$`Total Pay`, football$`Football Net Revenue`)
+
+cor(football$`Total Pay`, football$`Football Net Revenue`, method = "pearson")
+
+
+```
+
+```{r}
+#9
+baseball <- read.csv("BaseballData-BestPredictor.csv")
+
+cor(baseball$wP, baseball$rS , method = "pearson")
+
+cor(baseball$wP, baseball$hR , method = "pearson")
+
+cor(baseball$wP, baseball$tbA , method = "pearson")
+
+cor(baseball$wP, baseball$obP , method = "pearson")
+
+cor(baseball$wP, baseball$baaT , method = "pearson")
+
+cor(baseball$wP, baseball$terA , method = "pearson")
+
+```
+

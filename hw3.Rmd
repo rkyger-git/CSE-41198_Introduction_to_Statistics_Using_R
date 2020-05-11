@@ -1,0 +1,186 @@
+---
+title: "ISA HW2"
+output: html_notebook
+---
+
+```{r}
+#1
+pnorm(-2.45)
+
+pnorm(-0.43)
+
+pnorm(1.35)
+
+pnorm(3.49)
+```
+
+```{r}
+#2
+1 - pnorm(-3.01)
+
+1 - pnorm(-1.59)
+
+1 - pnorm(1.78)
+
+1 - pnorm(3.11)
+
+```
+
+```{r}
+#3
+
+pnorm(2.04) - pnorm(-2.04)
+
+pnorm(0) - pnorm(-0.55)
+
+pnorm(2.76) - pnorm(-1.04)
+
+```
+
+```{r}
+#4
+pnorm(-2) + (1-pnorm(2))
+
+pnorm(-1.56) + (1-pnorm(2.56))
+
+pnorm(-0.24) + (1-pnorm(1.20))
+
+```
+
+```{r}
+#5
+m <- 50
+sd <- 12
+
+zvalue <- function(x, mean, sd) {
+  (x - mean)/sd
+}
+
+#zvalue(50, m, sd)
+
+#zvalue(34, m, sd)
+
+pnorm(zvalue(50, m, sd)) - pnorm(zvalue(34, m, sd))
+
+
+#1 - zvalue(60, m, sd)
+
+#zvalue(30, m, sd)
+
+(pnorm(zvalue(30, m, sd)) + pnorm(1 - zvalue(60, m, sd))) * 100
+
+
+z <- qnorm(0.80)
+
+x <- (z*sd) + m
+x
+
+```
+
+
+```{r}
+#5d
+m <- 50
+sd <- 10
+
+zvalue <- function(x, mean, sd) {
+  (x - mean)/sd
+}
+
+pnorm(zvalue(50, m, sd)) - pnorm(zvalue(34, m, sd))
+
+(pnorm(zvalue(30, m, sd)) + pnorm(1 - zvalue(60, m, sd))) * 100
+
+
+z <- qnorm(0.80)
+
+x <- (z*sd) + m
+x
+
+```
+
+
+```{r}
+#TEST
+m = 100
+sd = 15
+  
+zvalue <- function(x, mean, sd) {
+  (x - mean)/sd
+}
+
+zvalue(110,100,15)
+
+
+```
+
+```{r}
+#6
+m <- 73
+sd <- 8
+
+zvalue <- function(x, mean, sd) {
+  (x - mean)/sd
+}
+
+pnorm(zvalue(91,m,sd)) * 100
+
+
+(pnorm(zvalue(89,m,sd)) - pnorm(zvalue(65,m,sd))) *100
+
+
+z <- qnorm(0.05)
+
+x <- (z*sd) + m
+x
+
+```
+
+
+```{r}
+#7
+MPG <- c(22,23,21,22,25,26,22,22,21,19,22,22,26,23,24,21,22)
+
+hist(MPG)
+
+qqnorm(MPG)
+qqline(MPG)
+
+```
+
+
+```{r}
+#TEST
+hist(sort(scale(SUV)))
+
+qqnorm(sort(scale(SUV)))
+qqline(sort(scale(SUV)))
+```
+
+
+
+```{r}
+#8
+library(readxl)
+#utility <- read_excel("Utility.xlsx")
+
+hist(utility$`Utility Charge`)
+
+qqnorm(utility$`Utility Charge`)
+qqline(utility$`Utility Charge`)
+
+
+```
+
+
+```{r}
+#9
+z <- seq(-3,3,length=100)
+
+y <- 1/sqrt(2*pi)*exp(-z^2/2)
+
+plot(z, y, type = "l")
+
+```
+
+
