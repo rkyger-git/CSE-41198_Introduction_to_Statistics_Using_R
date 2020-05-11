@@ -1,0 +1,111 @@
+---
+title: "hw7"
+output: html_notebook
+---
+
+
+```{r}
+#1
+
+p1 <- 0.38
+
+p2 <- 403/1122
+
+
+sd <- sqrt((p1*(1-p1))/1122)
+sd
+
+zvalue <- (p2 - p1)/sd
+zvalue
+
+z_crit <- qnorm(0.05)
+
+zvalue > z_crit
+
+
+```
+
+```{r}
+#2
+
+p1 <- 0.52
+
+p2 <- 256/800
+
+sd <- sqrt((p1*(1-p1))/800)
+sd
+
+zvalue <- (p2 - p1)/sd
+zvalue
+
+z_crit <- qnorm(0.05/2)
+
+zvalue > z_crit
+
+
+```
+
+```{r}
+#4
+
+mean <- 21.2 
+sd <- 4.9
+
+s_mean <- 21.9
+
+zvalue <- (s_mean - mean)/(sd/sqrt(200))
+zvalue
+
+pnorm(zvalue)
+
+1 - pnorm(zvalue)
+
+```
+
+```{r}
+#5
+mean <- 703.5
+
+s_mean <- 714.2
+
+s_sd <- 83.2
+
+n <- 40
+
+
+tvalue <- (s_mean - mean)/(s_sd/sqrt(n)) 
+tvalue
+
+t_crit <- 1.685
+
+tvalue > t_crit
+
+```
+
+
+```{r}
+#6
+mean <- 40.7
+
+s_mean <- 38.9
+
+s_sd <- 9.6
+
+n <- 32
+
+
+tvalue <- (s_mean - mean)/(s_sd/sqrt(n)) 
+tvalue
+
+t_crit <- -2.04
+
+tvalue > t_crit
+
+ME <- t_crit*(s_sd/sqrt(n))
+ME
+
+s_mean - ME
+s_mean + ME
+
+```
+
