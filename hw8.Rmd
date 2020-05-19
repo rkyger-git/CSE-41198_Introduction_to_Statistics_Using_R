@@ -1,0 +1,118 @@
+---
+title: "HW8"
+output: html_notebook
+---
+
+```{r}
+#1
+library(readr)
+
+df_m <- read_csv("P1-x1x2x3x4y.csv")
+
+cor(df_m, method="pearson")
+
+#cor(df_m, method="spearman")
+
+#cor(df_m, method="kendall")
+
+model_1 <- lm(data=df_m, y ~ x1+x2+x3+x4)
+
+summary(model_1)
+
+model_2 <- lm(data=df_m, y ~ x2+x3+x4)
+
+summary(model_2)
+
+model_3 <- lm(data=df_m, y ~ x2+x4)
+
+summary(model_3)
+
+
+
+
+res <- residuals(model_1)
+
+qqnorm(res)
+qqline(res)
+
+plot(df_m$x1, res)
+abline(c(0,0))
+
+plot(df_m$x2, res)
+abline(c(0,0))
+
+plot(df_m$x3, res)
+abline(c(0,0))
+
+plot(df_m$x4, res)
+abline(c(0,0))
+
+plot(df_m$y, res)
+abline(c(0,0))
+
+boxplot(res)
+
+
+pred_model_1 <- function(x1,x2,x3,x4) {
+  (0.06807*x1) + (1.14597*x2) + (0.38972*x3) - (2.93777*x4) + 279.02354
+}
+
+x1 = 34
+x2 = 35.6
+x3 = 12.4
+x4 = 29
+
+pred_model_1(x1,x2,x3,x4)
+
+
+```
+
+```{r}
+#2
+library(readr)
+
+housing <- read_csv("P2-Housing.csv")
+
+cor(housing, method="pearson")
+
+#cor(housing, method="spearman")
+
+#cor(housing, method="kendall")
+
+price <- lm(data=housing, Asking_Price ~ Square_Footage + Bedrooms + Baths)
+
+summary(price)
+
+price_2 <- lm(data=housing, Asking_Price ~ Square_Footage + Baths)
+
+summary(price_2)
+
+res <- residuals(price_2)
+
+qqnorm(res)
+qqline(res)
+
+plot(housing$Square_Footage, res)
+abline(c(0,0))
+
+plot(housing$Baths, res)
+abline(c(0,0))
+
+plot(housing$Asking_Price, res)
+abline(c(0,0))
+
+boxplot(res)
+
+pred_model_2 <- function(x1, x2, x3) {
+  (0.07193*x1) - (0.80991*x2) + (55.34907*x3) + 25.62812
+}
+
+x1 = 2900
+x2 = 4
+x3 = 3
+
+pred_model_2(x1,x2,x3)
+
+
+```
+
