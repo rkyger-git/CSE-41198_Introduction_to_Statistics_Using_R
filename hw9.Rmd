@@ -1,0 +1,30 @@
+---
+title: "hw9"
+output: html_notebook
+---
+
+
+```{r}
+#1
+library(readr)
+
+neighbor_data <- read_csv("P1 Book14.40 Neighbor Data.csv")
+
+model_1 <- lm(data=neighbor_data, Price ~ Rooms + Neighborhood)
+
+summary(model_1)
+
+pred_model_1 <- function(x1,x2) {
+  (9.219*x1) + (12.697*x2) + 243.737 
+}
+
+pred_model_1(9,0)
+
+9.219 - 1.030
+9.219 + 1.030
+
+12.697 - 3.535
+12.697 + 3.535
+
+```
+
